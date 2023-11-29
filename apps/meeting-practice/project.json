@@ -1,0 +1,57 @@
+{
+  "name": "meeting-practice",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/meeting-practice/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/meeting-practice",
+        "main": "apps/meeting-practice/src/main.ts",
+        "tsConfig": "apps/meeting-practice/tsconfig.app.json",
+        "assets": ["apps/meeting-practice/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/meeting-practice/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "meeting-practice:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "meeting-practice:build:development"
+        },
+        "production": {
+          "buildTarget": "meeting-practice:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/meeting-practice/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/meeting-practice/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
