@@ -1,0 +1,7 @@
+database:
+  host: devdb.channakyasoft.com
+  client: mysql
+  port: 3306
+  db: demo
+  username: channakya
+  password: Ch@nn@ky@123#
