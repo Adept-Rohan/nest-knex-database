@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@org4/knex": ["shared/knex/src/index.ts"],
       "@org4/user": ["libs/api/user/src/index.ts"]
     }
   },
