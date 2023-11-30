@@ -4,9 +4,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { UserModule } from '@org4/user';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { KnexModule } from '@org4/knex';
 
 @Module({
   imports: [
+    UserModule,
+    KnexModule,
     GraphQLModule.forRootAsync<ApolloDriverConfig>({
       driver: ApolloDriver,
       imports: [UserModule],

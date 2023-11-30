@@ -1,7 +1,7 @@
 import { Logger, Provider } from '@nestjs/common';
 import knex from 'knex';
-// import { join } from 'path';
 import { getKnexProviderToken } from './contsant';
+import { join } from 'path';
 
 export const MeetingKnexProvider: Provider = {
   provide: getKnexProviderToken(),
@@ -21,6 +21,10 @@ export const MeetingKnexProvider: Provider = {
       pool: {
         min: 2,
         max: 10,
+      },
+      migrations: {
+        tableName: 'knex_migrations',
+        directory: join(__dirname, 'migrations'),
       },
       log: {
         debug: (m) => logger.debug(m),
