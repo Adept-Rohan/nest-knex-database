@@ -1,10 +1,10 @@
 import { Logger, Provider } from '@nestjs/common';
 import knex from 'knex';
-import { getKnexProviderToken } from './contsant';
+import { DEFAULT_KNEX_TOKEN } from './contsant';
 import { join } from 'path';
 
 export const MeetingKnexProvider: Provider = {
-  provide: getKnexProviderToken(),
+  provide: DEFAULT_KNEX_TOKEN,
   useFactory: () => {
     const logger = new Logger('LocalKnexProvider');
 

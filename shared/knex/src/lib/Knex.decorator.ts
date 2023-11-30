@@ -1,6 +1,4 @@
 import { Inject } from '@nestjs/common';
-import { DEFAULT_KNEX_TOKEN, getKnexProviderToken } from './contsant';
+import { DEFAULT_KNEX_TOKEN } from './contsant';
 
-export function InjectKnex(token = DEFAULT_KNEX_TOKEN) {
-  return Inject(getKnexProviderToken(token));
-}
+export const InjectKnex = Inject(DEFAULT_KNEX_TOKEN);
